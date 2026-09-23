@@ -1,0 +1,14 @@
+{
+  "_note": "mermaid の配布ファイル（dist/mermaid.min.js）に組み込まれているが、npm install では node_modules に入らないパッケージ。バージョンは mermaid 12.0.0 のビルド時のもの（dist/mermaid.js の中のパスで確認）。本文は npm の同じバージョンのパッケージから写した。fastdom は LICENSE ファイルが無いため README の License の節から写した",
+  "packages": [
+    { "name": "js-yaml", "version": "4.3.0", "license": "MIT", "repository": "https://github.com/nodeca/js-yaml", "file": "js-yaml.txt" },
+    { "name": "fastdom", "version": "1.0.12", "license": "MIT", "repository": "https://github.com/wilsonpage/fastdom", "file": "fastdom.txt" },
+    { "name": "langium", "version": "4.2.1", "license": "MIT", "repository": "https://github.com/eclipse-langium/langium", "file": "langium.txt" },
+    { "name": "chevrotain-allstar", "version": "0.3.1", "license": "MIT", "repository": "https://github.com/langium/chevrotain-allstar", "file": "chevrotain-allstar.txt" },
+    { "name": "vscode-jsonrpc", "version": "8.2.0", "license": "MIT", "repository": "https://github.com/Microsoft/vscode-languageserver-node", "file": "vscode-jsonrpc.txt" },
+    { "name": "vscode-languageserver-protocol", "version": "3.17.5", "license": "MIT", "repository": "https://github.com/Microsoft/vscode-languageserver-node", "file": "vscode-languageserver-protocol.txt" },
+    { "name": "vscode-languageserver-textdocument", "version": "1.0.12", "license": "MIT", "repository": "https://github.com/Microsoft/vscode-languageserver-node", "file": "vscode-languageserver-textdocument.txt" },
+    { "name": "vscode-languageserver-types", "version": "3.17.5", "license": "MIT", "repository": "https://github.com/Microsoft/vscode-languageserver-node", "file": "vscode-languageserver-types.txt" },
+    { "name": "vscode-uri", "version": "3.1.0", "license": "MIT", "repository": "https://github.com/microsoft/vscode-uri", "file": "vscode-uri.txt" }
+  ]
+}

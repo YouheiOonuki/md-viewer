@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>__TITLE__｜yorozu-craft</title>
-  <meta name="description" content="__DESCRIPTION__">
+  <title>Markdown＋Mermaid ビューア｜yorozu-craft</title>
+  <meta name="description" content="インストール不要のMarkdownエディタ。Mermaidの図も描ける1ファイルのHTMLをダウンロードして、ダブルクリックで開くだけ。通信しないのでオフラインや社内のPCでも使えます。">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://yorozu-craft.com/__REPO__/">
+  <link rel="canonical" href="https://yorozu-craft.com/md-viewer/">
 
-  <meta property="og:title" content="__TITLE__｜yorozu-craft">
-  <meta property="og:description" content="__DESCRIPTION__">
+  <meta property="og:title" content="Markdown＋Mermaid ビューア｜yorozu-craft">
+  <meta property="og:description" content="インストール不要のMarkdownエディタ。Mermaidの図も描ける1ファイルのHTMLをダウンロードして、ダブルクリックで開くだけ。通信しないのでオフラインや社内のPCでも使えます。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yorozu-craft.com/__REPO__/">
+  <meta property="og:url" content="https://yorozu-craft.com/md-viewer/">
   <meta property="og:site_name" content="yorozu-craft">
   <meta property="og:locale" content="ja_JP">
-  <meta property="og:image" content="https://yorozu-craft.com/__REPO__/og-image.png">
+  <meta property="og:image" content="https://yorozu-craft.com/md-viewer/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
@@ -25,10 +25,13 @@
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "__TITLE__",
-    "description": "__DESCRIPTION__",
-    "url": "https://yorozu-craft.com/__REPO__/",
+    "name": "Markdown＋Mermaid ビューア",
+    "description": "インストール不要のMarkdownエディタ。Mermaidの図も描ける1ファイルのHTMLをダウンロードして、ダブルクリックで開くだけ。通信しないのでオフラインや社内のPCでも使えます。",
+    "url": "https://yorozu-craft.com/md-viewer/",
     "applicationCategory": "UtilitiesApplication",
+    "downloadUrl": "https://yorozu-craft.com/md-viewer/md-viewer.html",
+    "fileSize": "5.6MB",
+    "softwareRequirements": "Microsoft Edge・Google Chrome・Firefox・Safari などの新しいブラウザ",
     "operatingSystem": "All",
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
     "inLanguage": "ja"
@@ -42,33 +45,61 @@
 
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="./apple-touch-icon.png">
-  <!-- PWA-BEGIN -->
-  <link rel="manifest" href="./manifest.webmanifest">
-  <!-- PWA-END -->
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
   <header class="app-header">
-    <h1>__TITLE__</h1>
-    <p class="subtitle">__DESCRIPTION__</p>
+    <h1>Markdown＋Mermaid ビューア</h1>
+    <p class="subtitle">インストール不要の Markdown エディタ。1 つの HTML ファイルを保存して、ダブルクリックで開くだけ。</p>
   </header>
 
   <main class="app-main">
 
-    <!-- ここにツール本体を書く（例: 金額を 100 円単位で切り上げる） -->
-    <section class="card" aria-labelledby="tool-heading">
-      <h2 id="tool-heading">計算</h2>
-      <div class="field">
-        <label for="amount">金額</label>
-        <p class="hint">入力内容はこの端末のブラウザにだけ保存され、外部には送信されません。</p>
-        <input type="number" id="amount" inputmode="numeric" placeholder="例：1234">
+    <section class="card hero" aria-labelledby="h-get">
+      <h2 id="h-get">ダウンロードして使う（無料）</h2>
+      <p>本体は <strong>md-viewer.html という 1 つのファイル</strong>です。パソコンに保存して、ダブルクリックするとブラウザで開きます。<strong>インストール不要・通信しない</strong>ので、ソフトを入れられない職場の PC やネットにつながらない環境でも使えます。</p>
+      <div class="cta">
+        <a class="btn btn-big" href="./md-viewer.html" download="md-viewer.html">ダウンロード（md-viewer.html・約 5.6MB）</a>
+        <a class="btn btn-sub" href="./md-viewer.html" target="_blank" rel="noopener">ブラウザで試す</a>
       </div>
-      <p>結果：<strong id="result" aria-live="polite">—</strong></p>
-      <button type="button" id="share" class="btn">結果を開くリンクをコピー</button>
+      <p class="small">「ブラウザで試す」は、ダウンロードするものと同じファイルを開きます。広告やアクセス解析は入っていません（広告はこの紹介ページだけです）。</p>
     </section>
 
-    <p class="small"><a href="./guide.html">使い方・よくある質問・ご利用上の注意</a></p>
+    <section class="card content" aria-labelledby="h-feat">
+      <h2 id="h-feat">できること</h2>
+      <ul class="feature-list">
+        <li><strong>編集とプレビューを左右に並べて表示</strong>：書くとすぐ反映。スマホでは「編集・プレビュー・目次」を切り替えます</li>
+        <li><strong>GitHub と同じ書き方（GFM）</strong>：表・チェックリスト・取り消し線・自動リンク・コードブロック</li>
+        <li><strong>Mermaid の図</strong>：<code>```mermaid</code> のブロックを、フローチャート・シーケンス図・ガントチャートなどの図にします</li>
+        <li><strong>目次</strong>：見出しから自動で作り、押すとその場所へ移動</li>
+        <li><strong>Excel の表を貼り付けて変換</strong>：セルの範囲をコピーして貼るだけで Markdown の表に</li>
+        <li><strong>1 つの HTML に書き出し</strong>：図は SVG で埋め込み。書き出したファイルは JavaScript なしで表示できるので、受け取った人の環境を選びません</li>
+        <li><strong>印刷・PDF</strong>：表や図がページの途中で切れにくい印刷用の見た目</li>
+        <li><strong>.md を開く・保存</strong>：ファイルを選ぶか、画面にドラッグ＆ドロップ。書きかけは自動で下書き保存</li>
+      </ul>
+    </section>
+
+    <section class="card content" aria-labelledby="h-steps">
+      <h2 id="h-steps">使い方（3 ステップ）</h2>
+      <ol>
+        <li>上の「ダウンロード」で md-viewer.html を保存する（デスクトップや USB メモリなど、好きな場所へ）</li>
+        <li>保存したファイルをダブルクリックする（Edge・Chrome・Firefox などのブラウザで開きます）</li>
+        <li>左の欄に Markdown を書く。「開く」で .md ファイルを読み込むこともできます</li>
+      </ol>
+      <p class="small">はじめて開くと、見出し・表・チェックリスト・図の見本が出ます。</p>
+    </section>
+
+    <section class="card content" aria-labelledby="h-safe">
+      <h2 id="h-safe">通信しない・安全に表示する</h2>
+      <ul>
+        <li>md-viewer.html は、ライブラリ（marked・mermaid・DOMPurify）もすべて 1 ファイルの中に入っています。<strong>外部のサーバーには一切接続しません</strong>（ブラウザの仕組み Content-Security-Policy でも通信を禁止しています）</li>
+        <li>書いた内容は、そのブラウザの中にだけ下書きとして保存されます</li>
+        <li>Markdown の中に <code>&lt;script&gt;</code> などが入っていても実行されないよう、表示する前に無害化します</li>
+      </ul>
+    </section>
+
+    <p class="card" style="text-align:center"><a href="./guide.html">使い方・Excel の表の貼り付け・書き出し・よくある質問・ライセンス</a></p>
 
   </main>
 
@@ -76,7 +107,7 @@
     <nav class="footer-nav" aria-label="フッターナビゲーション">
       <ul>
         <li><a href="../">yorozu-craft トップ</a></li>
-        <li><a href="./" aria-current="page">__TITLE__</a></li>
+        <li><a href="./" aria-current="page">Markdown＋Mermaid ビューア</a></li>
         <li><a href="./guide.html">使い方・よくある質問</a></li>
         <li><a href="../about.html">運営者情報</a></li>
         <li><a href="../privacy-policy.html">プライバシーポリシー</a></li>
@@ -85,9 +116,6 @@
     <p>&copy; 2026 yorozu-craft. All rights reserved.</p>
   </footer>
 
-  <script src="./constants.js"></script>
-  <script src="./calc.js"></script>
-  <script src="./main.js"></script>
   <!-- Cloudflare Web Analytics（Cookie を使わないアクセス解析） --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b79bf821e1fd4b6683866d493b1de426"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

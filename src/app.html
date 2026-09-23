@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  Markdown＋Mermaid ビューア（yorozu-craft）  https://yorozu-craft.com/md-viewer/
+  このファイル 1 つで動きます。インストール不要・外部への通信なし。
+  本体のコード: MIT License, Copyright (c) 2026 Youhei Oonuki
+  同梱ライブラリ: {{LIB_SUMMARY}}
+  同梱ライブラリのライセンス全文は、画面の「ライセンス」またはこのファイルの末尾（id="licenses"）にあります。
+  ビルド: {{BUILD_NOTE}}
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 外部には一切通信しない（読み込み・送信とも禁止）。画像は data: と blob: だけ表示する -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light dark">
+  <title>Markdown＋Mermaid ビューア</title>
+  <link rel="icon" href="{{FAVICON}}">
+  <style>
+{{APP_CSS}}
+  </style>
+  <style id="mv-doc-css">
+{{DOC_CSS}}
+  </style>
+</head>
+<body data-view="edit">
+  <header class="mv-header">
+    <div class="mv-brand">
+      <span class="mv-logo" aria-hidden="true">M↓</span>
+      <span class="mv-title">Markdown＋Mermaid ビューア</span>
+      <span class="mv-file" id="mv-file" title="開いているファイル"></span>
+    </div>
+    <div class="mv-toolbar" role="toolbar" aria-label="操作">
+      <button type="button" id="mv-open" title="Markdown ファイル（.md）を開く">開く</button>
+      <button type="button" id="mv-save" title=".md として保存（Ctrl+S）">.md で保存</button>
+      <button type="button" id="mv-export" title="図も入った 1 つの HTML ファイルに書き出す">HTML 書き出し</button>
+      <button type="button" id="mv-print" title="印刷・PDF に保存">印刷</button>
+      <button type="button" id="mv-table" title="Excel などの表を Markdown の表にして入れる">表の貼り付け</button>
+      <button type="button" id="mv-toc-toggle" class="mv-wide-only" aria-pressed="true" title="目次を出す・隠す">目次</button>
+      <button type="button" id="mv-new" title="白紙から書く">新規</button>
+      <button type="button" id="mv-sample" title="見本の文章を出す">見本</button>
+      <button type="button" id="mv-about" title="このツールについて・ライセンス">ライセンス</button>
+    </div>
+    <input type="file" id="mv-file-input" accept=".md,.markdown,.mdown,.txt,text/markdown,text/plain" hidden>
+  </header>
+
+  <nav class="mv-tabs" role="tablist" aria-label="表示の切り替え">
+    <button type="button" role="tab" id="mv-tab-edit" data-view="edit" aria-selected="true">編集</button>
+    <button type="button" role="tab" id="mv-tab-preview" data-view="preview" aria-selected="false">プレビュー</button>
+    <button type="button" role="tab" id="mv-tab-toc" data-view="toc" aria-selected="false">目次</button>
+  </nav>
+
+  <main class="mv-main" id="mv-main">
+    <aside class="mv-toc" id="mv-toc-pane" aria-label="目次">
+      <p class="mv-pane-title">目次</p>
+      <ol class="mv-toc-list" id="mv-toc"></ol>
+      <p class="mv-toc-empty" id="mv-toc-empty">見出し（# で始まる行）を書くと、ここに目次が出ます。</p>
+    </aside>
+    <section class="mv-editor-pane" aria-label="編集">
+      <label for="mv-editor" class="mv-visually-hidden">Markdown の入力</label>
+      <textarea id="mv-editor" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="ここに Markdown を書きます。.md ファイルをここにドラッグしても開けます。"></textarea>
+    </section>
+    <section class="mv-preview-pane" id="mv-preview-pane" aria-label="プレビュー">
+      <div class="markdown-body" id="mv-preview"></div>
+    </section>
+  </main>
+
+  <footer class="mv-status">
+    <span id="mv-status" aria-live="polite"></span>
+    <span class="mv-offline">通信しません・この端末の中だけで動きます</span>
+  </footer>
+
+  <div class="mv-drop" id="mv-drop" hidden><p>ここに離すと開きます</p></div>
+  <div class="mv-toast" id="mv-toast" role="status" hidden><span id="mv-toast-text"></span> <button type="button" id="mv-toast-action" hidden></button></div>
+
+  <dialog id="mv-table-dialog" aria-labelledby="mv-table-title">
+    <form method="dialog" class="mv-dialog">
+      <h2 id="mv-table-title">Excel の表を貼り付け</h2>
+      <p class="mv-hint">Excel やスプレッドシートでセルの範囲をコピーし、下の枠に貼り付けてください（Ctrl+V）。1 行目が見出しの行になります。</p>
+      <label for="mv-tsv" class="mv-visually-hidden">コピーした表</label>
+      <textarea id="mv-tsv" rows="6" spellcheck="false" placeholder="ここに貼り付け"></textarea>
+      <p class="mv-hint">変換結果（カーソルの位置に入ります）</p>
+      <pre class="mv-tsv-out" id="mv-tsv-out" aria-live="polite"></pre>
+      <label class="mv-check"><input type="checkbox" id="mv-auto-table"> 編集欄に表を貼り付けたときも、自動で変換する</label>
+      <div class="mv-dialog-buttons">
+        <button type="submit" value="cancel">やめる</button>
+        <button type="submit" value="insert" id="mv-tsv-insert" class="mv-primary">挿入する</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="mv-about-dialog" aria-labelledby="mv-about-title">
+    <form method="dialog" class="mv-dialog mv-dialog-wide">
+      <h2 id="mv-about-title">このツールについて</h2>
+      <p>Markdown＋Mermaid ビューア（yorozu-craft）。この HTML ファイル 1 つで動き、外部には一切通信しません。書いた内容は、このブラウザの中（localStorage）にだけ下書きとして保存されます。</p>
+      <p>使い方・よくある質問：<a href="https://yorozu-craft.com/md-viewer/guide.html" target="_blank" rel="noopener noreferrer">https://yorozu-craft.com/md-viewer/guide.html</a>（リンクを押したときだけ開きます）</p>
+      <h3>同梱しているライブラリ</h3>
+      <ul class="mv-lib-list">
+{{LIB_LIST}}
+      </ul>
+      <p class="mv-hint">このツールのコードは MIT License です。同梱ライブラリと、それらに含まれるパッケージのライセンス全文は次のとおりです。</p>
+      <pre class="mv-license-text" id="mv-license-text" tabindex="0"></pre>
+      <div class="mv-dialog-buttons">
+        <button type="submit" value="close" class="mv-primary">閉じる</button>
+      </div>
+    </form>
+  </dialog>
+
+  <noscript><p class="mv-noscript">このツールは JavaScript を使います。ブラウザの設定で JavaScript を有効にしてください。</p></noscript>
+
+{{SCRIPTS}}
+<script type="text/plain" id="licenses">
+{{LICENSES}}
+</script>
+</body>
+</html>
