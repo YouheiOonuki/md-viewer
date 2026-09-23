@@ -1,0 +1,16 @@
+{
+  "name": "md-viewer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Markdown＋Mermaid ビューア（1 ファイルの HTML にビルドする）",
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node --test tests/*.test.js"
+  },
+  "devDependencies": {
+    "dompurify": "3.4.16",
+    "marked": "18.0.14",
+    "mermaid": "12.0.0"
+  }
+}
