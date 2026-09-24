@@ -27,34 +27,10 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "無料で使えますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい。会員登録もインストールも不要で、ダウンロードした HTML ファイルをブラウザで開くだけで使えます。"
-        }
-      },
-      {
-        "@type": "Question",
         "name": "インストールや管理者の権限は要りますか？",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "要りません。md-viewer.html はふつうの HTML ファイルなので、ダブルクリックするとお使いのブラウザで開きます。ただし、職場によってはダウンロードしたファイルの利用に決まりがあります。その場合は職場のルールに従ってください。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "本当にインターネットに通信しませんか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい。ライブラリも含めてすべて 1 つのファイルに入っていて、外部のサーバーには接続しません。ブラウザの仕組み（Content-Security-Policy）でも、外部からの読み込みと送信を禁止しています。そのため、インターネット上の画像も表示しません。文書の中のリンクは、押したときだけ新しいタブで開きます。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "書いた内容はどこに保存されますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "書きかけの内容は、お使いのブラウザの中（localStorage）に下書きとして自動で保存されます。外部には送信しません。残しておきたい文書は「.md で保存」でファイルに保存してください。ブラウザの設定やファイルを置く場所を変えると、下書きが見えなくなることがあります。"
+          "text": "要りません。md-viewer.html はふつうの HTML ファイルなので、ダブルクリックするとお使いのブラウザで開きます。"
         }
       },
       {
@@ -78,23 +54,7 @@
         "name": "Mermaid の図が表示されません。",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "書き方に誤りがあると、図の代わりに「図を描けませんでした」とエラーの内容が出ます。フローチャート・シーケンス図・ガントチャートなど、多くの種類に対応していますが、ZenUML には対応していません。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Shift_JIS の .md ファイルも開けますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "はい。UTF-8 として読めないファイルは Shift_JIS として読みます。保存するときは UTF-8 になります。"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "スマホでも使えますか？",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "「ブラウザで試す」から使えます。画面が狭いときは「編集・プレビュー・目次」をタブで切り替えます。ダウンロードしたファイルを開く方法は機種によって違うため、主にパソコンでの利用を想定しています。"
+          "text": "書き方に誤りがあると、図の代わりに「図を描けませんでした」とエラーの内容が出ます。ZenUML には対応していません。"
         }
       }
     ]
@@ -121,127 +81,111 @@
 
     <p class="card" style="text-align:center"><a href="./">▶ Markdown＋Mermaid ビューアのダウンロードはこちら</a></p>
 
-    <nav class="card content" aria-label="このページの目次">
-      <ol>
-        <li><a href="#howto">使い方</a></li>
-        <li><a href="#offline">ダウンロード版（オフライン）の使い方</a></li>
-        <li><a href="#mermaid">Mermaid の図の書き方</a></li>
-        <li><a href="#excel">Excel の表の貼り付け</a></li>
-        <li><a href="#export">HTML への書き出し・印刷</a></li>
-        <li><a href="#safety">安全性（通信しない・無害化）</a></li>
-        <li><a href="#licenses">ライセンス一覧</a></li>
-        <li><a href="#faq">よくある質問</a></li>
-        <li><a href="#notes">ご利用上の注意・データの扱い</a></li>
-      </ol>
-    </nav>
-
     <article class="card content" id="howto">
       <h2>使い方</h2>
       <ol>
-        <li>左の欄（編集）に Markdown を書くと、右（プレビュー）にすぐ反映されます。画面が狭いときは、上のタブで「編集・プレビュー・目次」を切り替えます</li>
-        <li>いちばん左の「目次」には、見出し（<code>#</code> で始まる行）が並びます。押すとその見出しへ移動します。「目次」ボタンで出し入れできます</li>
-        <li>「開く」で .md ファイルを読み込みます。ファイルを画面にドラッグ＆ドロップしても開けます</li>
-        <li>「.md で保存」（Ctrl+S）で、今の内容を .md ファイルとしてダウンロードします</li>
-        <li>「新規」で白紙に、「見本」で最初の見本の文章に戻ります</li>
+        <li>左の欄（編集）に Markdown を書くと、右（プレビュー）にすぐ反映されます</li>
+        <li>「開く」で .md ファイルを読み込みます</li>
+        <li>「.md で保存」（Ctrl+S）で .md ファイルとしてダウンロードします</li>
+        <li>「HTML 書き出し」で、1 つの HTML ファイルとしてダウンロードします</li>
       </ol>
-      <p>表・チェックリスト（<code>- [ ]</code>）・取り消し線（<code>~~文字~~</code>）・自動リンク・コードブロックなど、GitHub と同じ書き方（GFM）に対応しています。</p>
-    </article>
+      <details>
+        <summary>くわしい使い方</summary>
+        <ol>
+          <li>左の欄（編集）に Markdown を書くと、右（プレビュー）にすぐ反映されます。画面が狭いときは、上のタブで「編集・プレビュー・目次」を切り替えます</li>
+          <li>いちばん左の「目次」には、見出し（<code>#</code> で始まる行）が並びます。押すとその見出しへ移動します。「目次」ボタンで出し入れできます</li>
+          <li>「開く」で .md ファイルを読み込みます。ファイルを画面にドラッグ＆ドロップしても開けます。UTF-8 として読めないファイルは Shift_JIS として読みます</li>
+          <li>「.md で保存」（Ctrl+S）で、今の内容を .md ファイルとしてダウンロードします</li>
+          <li>「新規」で白紙に、「見本」で最初の見本の文章に戻ります</li>
+        </ol>
+        <p>表・チェックリスト（<code>- [ ]</code>）・取り消し線（<code>~~文字~~</code>）・自動リンク・コードブロックなど、GitHub と同じ書き方（GFM）に対応しています。</p>
+      </details>
 
-    <article class="card content" id="offline">
-      <h2>ダウンロード版（オフライン）の使い方</h2>
-      <ol>
-        <li><a href="./">紹介ページ</a>の「ダウンロード」で、<code>md-viewer.html</code> を保存します（約 5.6MB）</li>
-        <li>保存したファイルをダブルクリックします。Edge・Chrome・Firefox などのブラウザで開きます</li>
-        <li>そのまま使えます。インストールも、ブラウザの拡張機能も、インターネットへの接続も要りません</li>
-      </ol>
-      <p>ファイルは USB メモリや共有フォルダに置いても使えます。職場のパソコンで使うときは、職場のルールに従ってください。</p>
-      <p>「ブラウザで試す」で開くページも、ダウンロードするものと同じファイルです。</p>
+      <h3 id="offline">ダウンロード版（オフライン）の使い方</h3>
+      <p><code>md-viewer.html</code> を保存してダブルクリックすると、ブラウザで開きます。インストールも、ブラウザの拡張機能も、インターネットへの接続も要りません。</p>
+      <details>
+        <summary>保存のしかたと、置き場所</summary>
+        <ol>
+          <li><a href="./">紹介ページ</a>の「ダウンロード」で、<code>md-viewer.html</code> を保存します（約 5.6MB）</li>
+          <li>保存したファイルをダブルクリックします。Edge・Chrome・Firefox などのブラウザで開きます</li>
+          <li>そのまま使えます</li>
+        </ol>
+        <p>ファイルは USB メモリや共有フォルダに置いても使えます。職場のパソコンで使うときは、職場のルールに従ってください。</p>
+        <p>「ブラウザで試す」で開くページも、ダウンロードするものと同じファイルです。画面が狭いときは「編集・プレビュー・目次」をタブで切り替えます。ダウンロードしたファイルを開く方法は機種によって違うため、主にパソコンでの利用を想定しています。</p>
+      </details>
+
+      <h3 id="excel">Excel の表の貼り付け</h3>
+      <p>Excel やスプレッドシートでコピーしたセルの範囲を編集欄に貼り付けると、Markdown の表に変換されて入ります（1 行目が見出しの行になります）。</p>
+      <details>
+        <summary>手順と、変換のきまり</summary>
+        <ol>
+          <li>Excel やスプレッドシートで、表にしたいセルの範囲を選んでコピーします（1 行目が見出しの行になります）</li>
+          <li>編集欄の、表を入れたい場所に貼り付けます（Ctrl+V）。Markdown の表に変換されて入ります</li>
+          <li>変換せずに元の文字のまま入れたいときは、すぐに出るお知らせの「元の文字で貼り付け」を押します</li>
+        </ol>
+        <p>「表の貼り付け」ボタンから、変換結果を確かめてから入れることもできます。自動で変換したくないときは、そこで「自動で変換する」のチェックを外します。</p>
+        <ul>
+          <li>結合したセル・空のセルは、空欄になります</li>
+          <li>セルの中の <code>|</code> は <code>\|</code> に、セルの中の改行は <code>&lt;br&gt;</code> になります</li>
+          <li>数字だけの列は右寄せになります</li>
+          <li>コードブロック（<code>```</code> の中）に貼り付けたときは変換しません</li>
+        </ul>
+      </details>
+
+      <h3 id="export">HTML への書き出し・印刷</h3>
+      <p>書き出した HTML は、Mermaid の図が SVG として中に埋め込まれるので、受け取った人はブラウザで開くだけで図も含めて読めます。「印刷」はプレビューの部分だけを印刷します。</p>
+      <details>
+        <summary>くわしく</summary>
+        <p>「HTML 書き出し」を押すと、今の文書を <strong>1 つの HTML ファイル</strong>としてダウンロードします。Mermaid の図は SVG（画像の一種）として中に埋め込まれるので、ほかのファイルは要りません。書き出した HTML は JavaScript を使わずに表示できるので、受け取った人はブラウザで開くだけで、図も含めて読めます。</p>
+        <p>「印刷」を押すと、プレビューの部分だけを印刷します。プリンターの選択で「PDF に保存」を選ぶと PDF になります。表や図、コードブロックはページの途中で切れにくいようにしてあります（1 ページに収まらない大きな表は、ページをまたぎます）。</p>
+      </details>
     </article>
 
     <article class="card content" id="mermaid">
       <h2>Mermaid の図の書き方</h2>
-      <p><code>```mermaid</code> と <code>```</code> ではさんだ部分が図になります。書き換えると、少し待ってから（約 0.5 秒）図が描き直されます。</p>
-      <pre>```mermaid
+      <p><code>```mermaid</code> と <code>```</code> ではさんだ部分が図になります。書き方の誤りがあると、図の代わりにエラーの内容が出ます。</p>
+      <details>
+        <summary>書き方の例と、対応している図の一覧</summary>
+        <p>書き換えると、少し待ってから（約 0.5 秒）図が描き直されます。</p>
+        <pre>```mermaid
 flowchart TD
   A[申請書を作る] --&gt; B{上長の承認}
   B -- 承認 --&gt; C[提出する]
   B -- 差し戻し --&gt; A
 ```</pre>
-      <p>対応している主な図：フローチャート（<code>flowchart</code>）、シーケンス図（<code>sequenceDiagram</code>）、ガントチャート（<code>gantt</code>）、クラス図、状態遷移図、ER 図、円グラフ（<code>pie</code>）、マインドマップ（<code>mindmap</code>）、タイムライン、ユーザージャーニー、Git グラフ、象限チャート、要求図、C4 図、サンキー図、XY チャート、ブロック図、パケット図、かんばん、アーキテクチャ図、レーダーチャート、ツリーマップ。ZenUML には対応していません。</p>
-      <p>書き方の誤りがあると、図の代わりにエラーの内容が出ます。</p>
-    </article>
-
-    <article class="card content" id="excel">
-      <h2>Excel の表の貼り付け</h2>
-      <ol>
-        <li>Excel やスプレッドシートで、表にしたいセルの範囲を選んでコピーします（1 行目が見出しの行になります）</li>
-        <li>編集欄の、表を入れたい場所に貼り付けます（Ctrl+V）。Markdown の表に変換されて入ります</li>
-        <li>変換せずに元の文字のまま入れたいときは、すぐに出るお知らせの「元の文字で貼り付け」を押します</li>
-      </ol>
-      <p>「表の貼り付け」ボタンから、変換結果を確かめてから入れることもできます。自動で変換したくないときは、そこで「自動で変換する」のチェックを外します。</p>
-      <ul>
-        <li>結合したセル・空のセルは、空欄になります</li>
-        <li>セルの中の <code>|</code> は <code>\|</code> に、セルの中の改行は <code>&lt;br&gt;</code> になります</li>
-        <li>数字だけの列は右寄せになります</li>
-        <li>コードブロック（<code>```</code> の中）に貼り付けたときは変換しません</li>
-      </ul>
-    </article>
-
-    <article class="card content" id="export">
-      <h2>HTML への書き出し・印刷</h2>
-      <p>「HTML 書き出し」を押すと、今の文書を <strong>1 つの HTML ファイル</strong>としてダウンロードします。Mermaid の図は SVG（画像の一種）として中に埋め込まれるので、ほかのファイルは要りません。書き出した HTML は JavaScript を使わずに表示できるので、受け取った人はブラウザで開くだけで、図も含めて読めます。</p>
-      <p>「印刷」を押すと、プレビューの部分だけを印刷します。プリンターの選択で「PDF に保存」を選ぶと PDF になります。表や図、コードブロックはページの途中で切れにくいようにしてあります（1 ページに収まらない大きな表は、ページをまたぎます）。</p>
+        <p>対応している主な図：フローチャート（<code>flowchart</code>）、シーケンス図（<code>sequenceDiagram</code>）、ガントチャート（<code>gantt</code>）、クラス図、状態遷移図、ER 図、円グラフ（<code>pie</code>）、マインドマップ（<code>mindmap</code>）、タイムライン、ユーザージャーニー、Git グラフ、象限チャート、要求図、C4 図、サンキー図、XY チャート、ブロック図、パケット図、かんばん、アーキテクチャ図、レーダーチャート、ツリーマップ。ZenUML には対応していません。</p>
+      </details>
     </article>
 
     <article class="card content" id="safety">
       <h2>安全性（通信しない・無害化）</h2>
       <ul>
-        <li><strong>通信しない</strong>：ライブラリも含めてすべて 1 つのファイルに入っています。ブラウザの仕組み（Content-Security-Policy）で、外部からの読み込み・外部への送信を禁止しています。インターネット上の画像も表示しません</li>
-        <li><strong>無害化</strong>：プレビューに出す前に、DOMPurify で HTML を無害化します。Markdown の中に <code>&lt;script&gt;</code> や <code>onerror</code> などが入っていても実行されません</li>
-        <li><strong>図</strong>：Mermaid は <code>securityLevel: 'strict'</code>（いちばん厳しい設定）で動かしていて、図の中のリンクやクリックの処理は無効です</li>
-        <li><strong>書き出した HTML</strong>：JavaScript を含みません。念のため、script 要素と on～ の属性を取り除いてから書き出します</li>
-        <li><strong>広告・アクセス解析なし</strong>：md-viewer.html には入っていません（広告はこの使い方ページと紹介ページだけです）</li>
+        <li><strong>通信しない</strong>：外部からの読み込み・外部への送信を禁止しています</li>
+        <li><strong>無害化</strong>：Markdown の中に <code>&lt;script&gt;</code> や <code>onerror</code> などが入っていても実行されません</li>
       </ul>
-    </article>
-
-    <article class="card content" id="licenses">
-      <h2>ライセンス一覧</h2>
-      <p>このツールのコードは MIT License です（<a href="https://github.com/YouheiOonuki/md-viewer" target="_blank" rel="noopener">GitHub</a>）。md-viewer.html には、次のライブラリをそのまま埋め込んでいます。</p>
-      <div class="table-wrap">
-        <table class="tbl">
-          <thead><tr><th>ライブラリ</th><th>バージョン</th><th>ライセンス</th><th>用途</th></tr></thead>
-          <tbody>
-            <tr><td>marked</td><td>18.0.14</td><td>MIT</td><td>Markdown を HTML にする</td></tr>
-            <tr><td>mermaid</td><td>12.0.0</td><td>MIT</td><td>図を描く</td></tr>
-            <tr><td>DOMPurify</td><td>3.4.16</td><td>MPL-2.0 または Apache-2.0（Apache-2.0 を選択）</td><td>HTML を無害化する</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>mermaid の中には、d3（ISC）、dagre-d3-es・cytoscape・KaTeX・khroma・dayjs・lodash-es・langium（MIT）、chevrotain（Apache-2.0）、elkjs（Eclipse Public License 2.0）など、多くのパッケージが組み込まれています。elkjs のソースコードは <a href="https://github.com/kieler/elkjs" target="_blank" rel="noopener">github.com/kieler/elkjs</a>（バージョン 0.9.3）から入手できます。</p>
-      <p>すべてのパッケージのライセンス全文は、<a href="./THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a> と、md-viewer.html の「ライセンス」ボタンで見られます。</p>
+      <details>
+        <summary>くわしく</summary>
+        <ul>
+          <li><strong>通信しない</strong>：ライブラリも含めてすべて 1 つのファイルに入っています。ブラウザの仕組み（Content-Security-Policy）で、外部からの読み込み・外部への送信を禁止しています。インターネット上の画像も表示しません。文書の中のリンクは、押したときだけ新しいタブで開きます</li>
+          <li><strong>無害化</strong>：プレビューに出す前に、DOMPurify で HTML を無害化します。Markdown の中に <code>&lt;script&gt;</code> や <code>onerror</code> などが入っていても実行されません</li>
+          <li><strong>図</strong>：Mermaid は <code>securityLevel: 'strict'</code>（いちばん厳しい設定）で動かしていて、図の中のリンクやクリックの処理は無効です</li>
+          <li><strong>書き出した HTML</strong>：JavaScript を含みません。念のため、script 要素と on～ の属性を取り除いてから書き出します</li>
+          <li><strong>広告・アクセス解析なし</strong>：md-viewer.html には入っていません（広告はこの使い方ページと紹介ページだけです）</li>
+        </ul>
+      </details>
     </article>
 
     <article class="card content" id="faq">
       <h2>よくある質問</h2>
       <dl class="faq">
-        <dt>無料で使えますか？</dt>
-        <dd>はい。会員登録もインストールも不要で、ダウンロードした HTML ファイルをブラウザで開くだけで使えます。</dd>
         <dt>インストールや管理者の権限は要りますか？</dt>
-        <dd>要りません。md-viewer.html はふつうの HTML ファイルなので、ダブルクリックするとお使いのブラウザで開きます。ただし、職場によってはダウンロードしたファイルの利用に決まりがあります。その場合は職場のルールに従ってください。</dd>
-        <dt>本当にインターネットに通信しませんか？</dt>
-        <dd>はい。ライブラリも含めてすべて 1 つのファイルに入っていて、外部のサーバーには接続しません。ブラウザの仕組み（Content-Security-Policy）でも、外部からの読み込みと送信を禁止しています。そのため、インターネット上の画像も表示しません。文書の中のリンクは、押したときだけ新しいタブで開きます。</dd>
-        <dt>書いた内容はどこに保存されますか？</dt>
-        <dd>書きかけの内容は、お使いのブラウザの中（localStorage）に下書きとして自動で保存されます。外部には送信しません。残しておきたい文書は「.md で保存」でファイルに保存してください。ブラウザの設定やファイルを置く場所を変えると、下書きが見えなくなることがあります。</dd>
+        <dd>要りません。md-viewer.html はふつうの HTML ファイルなので、ダブルクリックするとお使いのブラウザで開きます。</dd>
         <dt>書き出した HTML は、相手の環境で見られますか？</dt>
         <dd>図は SVG という形で HTML の中に埋め込まれ、JavaScript を使わずに表示できます。Edge・Chrome・Firefox・Safari などの新しいブラウザなら、ファイルを開くだけで図も含めて読めます。</dd>
         <dt>画像は入れられますか？</dt>
         <dd>通信しない作りのため、URL や別のファイルを指定した画像は表示しません（data: で始まる形の画像だけ表示します）。図は Mermaid で書くのがおすすめです。</dd>
         <dt>Mermaid の図が表示されません。</dt>
-        <dd>書き方に誤りがあると、図の代わりに「図を描けませんでした」とエラーの内容が出ます。フローチャート・シーケンス図・ガントチャートなど、多くの種類に対応していますが、ZenUML には対応していません。</dd>
-        <dt>Shift_JIS の .md ファイルも開けますか？</dt>
-        <dd>はい。UTF-8 として読めないファイルは Shift_JIS として読みます。保存するときは UTF-8 になります。</dd>
-        <dt>スマホでも使えますか？</dt>
-        <dd>「ブラウザで試す」から使えます。画面が狭いときは「編集・プレビュー・目次」をタブで切り替えます。ダウンロードしたファイルを開く方法は機種によって違うため、主にパソコンでの利用を想定しています。</dd>
+        <dd>書き方に誤りがあると、図の代わりに「図を描けませんでした」とエラーの内容が出ます。ZenUML には対応していません。</dd>
       </dl>
     </article>
 
@@ -253,11 +197,36 @@ flowchart TD
     <article class="card content" id="notes">
       <h2>ご利用上の注意・データの扱い</h2>
       <ul>
-        <li><strong>保存されるデータ</strong>：書きかけの文書と開いたファイルの名前を、お使いのブラウザの中（localStorage の <code>md-viewer_draft</code>）に、表の自動変換などの設定を <code>md-viewer_settings</code> に保存します。外部には送信しません。ブラウザのデータを消すと下書きも消えるので、残したい文書は「.md で保存」で保存してください</li>
-        <li><strong>保存できない環境</strong>：ブラウザの設定などで下書きを保存できないときは、画面の下に 1 回だけお知らせを出します。その場合は閉じる前に「.md で保存」で保存してください</li>
-        <li><strong>ファイルの扱い</strong>：開いた .md ファイルはブラウザの中で読むだけで、どこにも送信しません。保存・書き出しはダウンロードとして行います</li>
-        <li><strong>表示の違い</strong>：Markdown の細かい解釈や図の見た目は、GitHub などほかのツールと少し違うことがあります。大切な文書は、書き出した結果を確かめてからお使いください</li>
+        <li>Markdown の細かい解釈や図の見た目は、GitHub などほかのツールと少し違うことがあります。大切な文書は、書き出した結果を確かめてからお使いください。</li>
+        <li>書きかけの文書はこの端末のブラウザ（localStorage、キー <code>md-viewer_draft</code>）にだけ保存され、外部には送信されません。残したい文書は「.md で保存」で保存してください。</li>
+        <li>開いた .md ファイルはブラウザの中で読むだけで、どこにも送信しません。</li>
       </ul>
+      <details>
+        <summary>保存されるもの・保存できない環境</summary>
+        <ul>
+          <li><strong>保存されるデータ</strong>：書きかけの文書と開いたファイルの名前を <code>md-viewer_draft</code> に、表の自動変換などの設定を <code>md-viewer_settings</code> に保存します。ブラウザのデータを消すと下書きも消えます。ブラウザの設定やファイルを置く場所を変えると、下書きが見えなくなることがあります</li>
+          <li><strong>保存できない環境</strong>：ブラウザの設定などで下書きを保存できないときは、画面の下に 1 回だけお知らせを出します。その場合は閉じる前に「.md で保存」で保存してください</li>
+          <li><strong>ファイルの扱い</strong>：保存・書き出しはダウンロードとして行います。保存するときは UTF-8 になります</li>
+        </ul>
+      </details>
+      <h3 id="licenses">ライセンス一覧</h3>
+      <p>このツールのコードは MIT License です（<a href="https://github.com/YouheiOonuki/md-viewer" target="_blank" rel="noopener">GitHub</a>）。</p>
+      <details>
+        <summary>埋め込んでいるライブラリ</summary>
+        <p>md-viewer.html には、次のライブラリをそのまま埋め込んでいます。</p>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>ライブラリ</th><th>バージョン</th><th>ライセンス</th><th>用途</th></tr></thead>
+            <tbody>
+              <tr><td>marked</td><td>18.0.14</td><td>MIT</td><td>Markdown を HTML にする</td></tr>
+              <tr><td>mermaid</td><td>12.0.0</td><td>MIT</td><td>図を描く</td></tr>
+              <tr><td>DOMPurify</td><td>3.4.16</td><td>MPL-2.0 または Apache-2.0（Apache-2.0 を選択）</td><td>HTML を無害化する</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>mermaid の中には、d3（ISC）、dagre-d3-es・cytoscape・KaTeX・khroma・dayjs・lodash-es・langium（MIT）、chevrotain（Apache-2.0）、elkjs（Eclipse Public License 2.0）など、多くのパッケージが組み込まれています。elkjs のソースコードは <a href="https://github.com/kieler/elkjs" target="_blank" rel="noopener">github.com/kieler/elkjs</a>（バージョン 0.9.3）から入手できます。</p>
+        <p>すべてのパッケージのライセンス全文は、<a href="./THIRD_PARTY_LICENSES.txt">THIRD_PARTY_LICENSES.txt</a> と、md-viewer.html の「ライセンス」ボタンで見られます。</p>
+      </details>
       <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd8B90qh5lEIyr25iw1jOjdQjOyaPZ1_z2wMB4kH-EmEeJYWw/viewform?usp=pp_url&amp;entry.585564634=md-viewer" target="_blank" rel="noopener">ご要望・不具合の報告（Google フォーム）</a>：いただいた内容をもとに直します。お返事はしていません。</p>
       <p>サイト全体の運営者情報・免責事項は<a href="../about.html">こちら</a>、プライバシーポリシーは<a href="../privacy-policy.html">こちら</a>です（すべてのツールで共通）。</p>
     </article>

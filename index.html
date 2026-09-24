@@ -58,48 +58,55 @@
 
     <section class="card hero" aria-labelledby="h-get">
       <h2 id="h-get">ダウンロードして使う（無料）</h2>
-      <p>本体は <strong>md-viewer.html という 1 つのファイル</strong>です。パソコンに保存して、ダブルクリックするとブラウザで開きます。<strong>インストール不要・通信しない</strong>ので、ソフトを入れられない職場の PC やネットにつながらない環境でも使えます。</p>
+      <p>本体は <strong>md-viewer.html という 1 つのファイル</strong>です。<strong>インストール不要・通信しない</strong>ので、ソフトを入れられない職場の PC やネットにつながらない環境でも使えます。</p>
       <div class="cta">
         <a class="btn btn-big" href="./md-viewer.html" download="md-viewer.html">ダウンロード（md-viewer.html・約 5.6MB）</a>
         <a class="btn btn-sub" href="./md-viewer.html" target="_blank" rel="noopener">ブラウザで試す</a>
       </div>
-      <p class="small">「ブラウザで試す」は、ダウンロードするものと同じファイルを開きます。広告やアクセス解析は入っていません（広告はこの紹介ページだけです）。</p>
+      <p class="small">「ブラウザで試す」は、ダウンロードするものと同じファイルを開きます。</p>
+      <details class="content">
+        <summary>使い方（3 ステップ）</summary>
+        <ol>
+          <li>上の「ダウンロード」で md-viewer.html を保存する（デスクトップや USB メモリなど、好きな場所へ）</li>
+          <li>保存したファイルをダブルクリックする（Edge・Chrome・Firefox などのブラウザで開きます）</li>
+          <li>左の欄に Markdown を書く。「開く」で .md ファイルを読み込むこともできます</li>
+        </ol>
+        <p class="small">はじめて開くと、見出し・表・チェックリスト・図の見本が出ます。</p>
+      </details>
     </section>
 
     <section class="card content" aria-labelledby="h-feat">
       <h2 id="h-feat">できること</h2>
-      <ul class="feature-list">
-        <li><strong>編集とプレビューを左右に並べて表示</strong>：書くとすぐ反映。スマホでは「編集・プレビュー・目次」を切り替えます</li>
-        <li><strong>GitHub と同じ書き方（GFM）</strong>：表・チェックリスト・取り消し線・自動リンク・コードブロック</li>
-        <li><strong>Mermaid の図</strong>：<code>```mermaid</code> のブロックを、フローチャート・シーケンス図・ガントチャートなどの図にします</li>
-        <li><strong>目次</strong>：見出しから自動で作り、押すとその場所へ移動</li>
-        <li><strong>Excel の表を貼り付けて変換</strong>：セルの範囲をコピーして貼るだけで Markdown の表に</li>
-        <li><strong>1 つの HTML に書き出し</strong>：図は SVG で埋め込み。書き出したファイルは JavaScript なしで表示できるので、受け取った人の環境を選びません</li>
-        <li><strong>印刷・PDF</strong>：表や図がページの途中で切れにくい印刷用の見た目</li>
-        <li><strong>.md を開く・保存</strong>：ファイルを選ぶか、画面にドラッグ＆ドロップ。書きかけは自動で下書き保存</li>
-      </ul>
-    </section>
-
-    <section class="card content" aria-labelledby="h-steps">
-      <h2 id="h-steps">使い方（3 ステップ）</h2>
-      <ol>
-        <li>上の「ダウンロード」で md-viewer.html を保存する（デスクトップや USB メモリなど、好きな場所へ）</li>
-        <li>保存したファイルをダブルクリックする（Edge・Chrome・Firefox などのブラウザで開きます）</li>
-        <li>左の欄に Markdown を書く。「開く」で .md ファイルを読み込むこともできます</li>
-      </ol>
-      <p class="small">はじめて開くと、見出し・表・チェックリスト・図の見本が出ます。</p>
+      <p>編集とプレビューを左右に並べて表示、Mermaid の図、Excel の表を貼り付けて変換、1 つの HTML に書き出し。</p>
+      <details>
+        <summary>くわしく</summary>
+        <ul class="feature-list">
+          <li><strong>編集とプレビューを左右に並べて表示</strong>：書くとすぐ反映。スマホでは「編集・プレビュー・目次」を切り替えます</li>
+          <li><strong>GitHub と同じ書き方（GFM）</strong>：表・チェックリスト・取り消し線・自動リンク・コードブロック</li>
+          <li><strong>Mermaid の図</strong>：<code>```mermaid</code> のブロックを、フローチャート・シーケンス図・ガントチャートなどの図にします</li>
+          <li><strong>目次</strong>：見出しから自動で作り、押すとその場所へ移動</li>
+          <li><strong>Excel の表を貼り付けて変換</strong>：セルの範囲をコピーして貼るだけで Markdown の表に</li>
+          <li><strong>1 つの HTML に書き出し</strong>：図は SVG で埋め込み。書き出したファイルは JavaScript なしで表示できるので、受け取った人の環境を選びません</li>
+          <li><strong>印刷・PDF</strong>：表や図がページの途中で切れにくい印刷用の見た目</li>
+          <li><strong>.md を開く・保存</strong>：ファイルを選ぶか、画面にドラッグ＆ドロップ。書きかけは自動で下書き保存</li>
+        </ul>
+      </details>
     </section>
 
     <section class="card content" aria-labelledby="h-safe">
       <h2 id="h-safe">通信しない・安全に表示する</h2>
-      <ul>
-        <li>md-viewer.html は、ライブラリ（marked・mermaid・DOMPurify）もすべて 1 ファイルの中に入っています。<strong>外部のサーバーには一切接続しません</strong>（ブラウザの仕組み Content-Security-Policy でも通信を禁止しています）</li>
-        <li>書いた内容は、そのブラウザの中にだけ下書きとして保存されます</li>
-        <li>Markdown の中に <code>&lt;script&gt;</code> などが入っていても実行されないよう、表示する前に無害化します</li>
-      </ul>
+      <p><strong>外部のサーバーには一切接続しません</strong>。書いた内容は、そのブラウザの中にだけ下書きとして保存されます。</p>
+      <details>
+        <summary>くわしく</summary>
+        <ul>
+          <li>md-viewer.html は、ライブラリ（marked・mermaid・DOMPurify）もすべて 1 ファイルの中に入っています。<strong>外部のサーバーには一切接続しません</strong>（ブラウザの仕組み Content-Security-Policy でも通信を禁止しています）</li>
+          <li>Markdown の中に <code>&lt;script&gt;</code> などが入っていても実行されないよう、表示する前に無害化します</li>
+          <li>md-viewer.html には広告やアクセス解析は入っていません（広告はこの紹介ページと使い方ページだけです）</li>
+        </ul>
+      </details>
     </section>
 
-    <p class="card" style="text-align:center"><a href="./guide.html">使い方・Excel の表の貼り付け・書き出し・よくある質問・ライセンス</a></p>
+    <p class="card" style="text-align:center"><a href="./guide.html">使い方・Excel の表の貼り付け・よくある質問</a></p>
 
   </main>
 
