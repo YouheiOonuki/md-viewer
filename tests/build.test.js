@@ -67,7 +67,7 @@ test('script 要素が途中で閉じていない（埋め込んだコードに 
   const opens = (html.match(/<script\b/gi) || []).length;
   const closes = (html.match(/<\/script>/gi) || []).length;
   assert.equal(opens, closes);
-  assert.equal(opens, 6);   // DOMPurify・marked・mermaid・core.js・app.js・ライセンス
+  assert.equal(opens, 7);   // DOMPurify・marked・mermaid・core.js・app.js・reset-storage.js・ライセンス
 });
 
 test('index.html・guide.html はダウンロード版へリンクし、ダウンロード版はサイトマップに載せない', () => {

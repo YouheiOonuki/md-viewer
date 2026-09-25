@@ -3,7 +3,7 @@
 //   npm ci          # package.json で固定したライブラリを入れる（最初と、ライブラリを更新したとき）
 //   node build.mjs
 //
-// - src/app.html に src/app.css・src/doc.css・ライブラリ・src/core.js・src/app.js をそのまま埋め込む
+// - src/app.html に src/app.css・src/doc.css・ライブラリ・src/core.js・src/app.js・src/reset-storage.js をそのまま埋め込む
 // - ライブラリは各パッケージがブラウザ用に配っているビルド済みのファイルを使う（依存パッケージは増やさない）
 // - 同梱ライブラリと、それらに含まれるパッケージのライセンス全文を集めて、md-viewer.html の末尾と
 //   THIRD_PARTY_LICENSES.txt に入れる
@@ -148,6 +148,7 @@ const scripts = [
   ...LIBS.map((l) => scriptTag(l.code, `${l.name} ${l.version} | ${l.license.replace(/（.*$/, '')} | 全文は末尾の id="licenses"`)),
   scriptTag(read('src/core.js'), 'Markdown＋Mermaid ビューア: core.js | MIT'),
   scriptTag(read('src/app.js'), 'Markdown＋Mermaid ビューア: app.js | MIT'),
+  scriptTag(read('src/reset-storage.js'), 'yorozu-craft 共通: reset-storage.js | MIT'),
 ].join('\n');
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
