@@ -93,7 +93,7 @@ node --test tests/*.test.js
 | `package.json` / `package-lock.json` | 埋め込むライブラリ（dev 依存、バージョン固定） |
 | `licenses/` | mermaid の配布ファイルに組み込まれているが npm では入らないパッケージのライセンス本文 |
 | `THIRD_PARTY_LICENSES.txt` | 同梱ライブラリのライセンス全文（ビルドで作る） |
-| `style.css` | 紹介・使い方ページの見た目（和紙風の配色、ダークモード対応） |
+| `style.css` | 紹介・使い方ページの見た目（和紙風の配色、ダークモード対応）。先頭の `yorozu-common:begin`〜`end` はサイト共通の部品とトークン（手で直さない。正本は youheioonuki.github.io の `tools/common/yorozu-common.css`、`tools/sync-common.mjs` で配る） |
 | `404.html` | ツール配下の存在しない URL で出るページ（サイト共通のもの） |
 | `favicon.svg` / `apple-touch-icon.png` / `og-image.png` | アイコン / ホーム画面用アイコン / SNS 共有用画像（1200×630） |
 | `sitemap.xml` | サイトマップ（index.html と guide.html だけ。robots.txt はドメイン直下で管理） |
