@@ -1,0 +1,6 @@
+# pre-push-gate.ps1 の既知の良性ヒット。1行 `path:パターン名`。
+#
+# md-viewer.html の 1103 行目は図の描画ライブラリ（elk。Java から変換したコード）を埋め込んだ 1 行で、
+# 変換後の識別子（英数 25・45 字）が X のキーの形に当たるだけで秘密ではない（2026-10-15 に確認）。
+md-viewer.html:x-token-25
+md-viewer.html:x-access-secret
