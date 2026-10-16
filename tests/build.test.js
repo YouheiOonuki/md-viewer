@@ -75,3 +75,10 @@ test('index.html・guide.html はダウンロード版へリンクし、ダウ�
   assert.match(index, /<a [^>]*href="\.\/md-viewer\.html"[^>]*\sdownload/);
   assert.doesNotMatch(read('sitemap.xml'), /md-viewer\.html/);
 });
+
+test('読み込んだ文の data-reset-* を落とす（reset-storage.js が文書全体から拾う属性。K191 段 2）', () => {
+  const used = [...new Set(read('src/reset-storage.js').match(/data-reset-[a-z]+/g))].sort();
+  const purify = /var PURIFY = \{[\s\S]*?FORBID_ATTR: \[([^\]]*)\]/.exec(read('src/app.js'))[1];
+  for (const a of used) assert.ok(purify.includes(`'${a}'`), a);
+  assert.ok(html.includes(purify), 'ダウンロード版も同じ設定（ビルドし直してある）');
+});

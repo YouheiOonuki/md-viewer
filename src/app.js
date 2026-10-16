@@ -243,9 +243,10 @@
     }
   });
 
+  // data-reset-* は reset-storage.js が「保存したデータを消す」ボタンとして文書全体から拾う属性。読み込んだ文に持たせない（K191 段 2）
   var PURIFY = {
     FORBID_TAGS: ['style', 'form', 'button', 'select', 'textarea', 'dialog'],
-    FORBID_ATTR: ['autofocus']
+    FORBID_ATTR: ['autofocus', 'data-reset-storage', 'data-reset-confirm', 'data-reset-legacy', 'data-reset-hold']
   };
 
   function render() {
