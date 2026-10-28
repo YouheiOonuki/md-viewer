@@ -94,12 +94,10 @@ body.mv-toc-hidden .mv-toc { display: none; }
   font-size: 16px; line-height: 1.65; tab-size: 4;
 }
 #mv-editor:focus-visible { outline-offset: -2px; }
-.mv-preview-pane { min-width: 0; min-height: 0; overflow: auto; background: var(--md-bg, #fffdf8); }
-.mv-preview-pane { background: #fffdf8; }
-@media (prefers-color-scheme: dark) { .mv-preview-pane { background: #221d18; } }
+.mv-preview-pane { min-width: 0; min-height: 0; overflow: auto; background: var(--card); }   /* 文書の地（doc.css の --md-bg）と同じ皮の --card */
 #mv-preview { padding: 1.2rem 1.4rem 3rem; min-height: 100%; }
 #mv-preview .mermaid-block.is-stale svg { opacity: 0.55; }
-#mv-preview .mermaid-pending { color: #6e604f; font-size: 0.85em; }
+#mv-preview .mermaid-pending { color: var(--md-muted); font-size: 0.85em; }
 
 /* 下の状態表示 */
 .mv-status {

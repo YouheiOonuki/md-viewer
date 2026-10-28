@@ -16,7 +16,7 @@
   <meta name="robots" content="noindex">
   <meta name="color-scheme" content="light dark">
   <title>Markdown＋Mermaid ビューア</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%20%3Cpath%20d%3D%22M12%204h28l14%2014v40a2%202%200%200%201-2%202H12a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2z%22%20fill%3D%22%23fbfcfd%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M40%204v14h14%22%20fill%3D%22none%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M17%2034V20l6%208%206-8v14%22%20fill%3D%22none%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M38%2022v11m-5-5%205%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Crect%20x%3D%2216%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Crect%20x%3D%2237%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Cpath%20d%3D%22M27%2046.5h8%22%20stroke%3D%22%233f6b2a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%20%3C%2Fsvg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%20%3Cpath%20d%3D%22M12%204h28l14%2014v40a2%202%200%200%201-2%202H12a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2z%22%20fill%3D%22%23faf6ee%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M40%204v14h14%22%20fill%3D%22none%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M17%2034V20l6%208%206-8v14%22%20fill%3D%22none%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M38%2022v11m-5-5%205%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Crect%20x%3D%2216%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Crect%20x%3D%2237%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Cpath%20d%3D%22M27%2046.5h8%22%20stroke%3D%22%233f6b2a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%20%3C%2Fsvg%3E">
   <link rel="manifest" href="/manifest.webmanifest">
   <style>
 /* Markdown＋Mermaid ビューア — 画面の見た目。色・角・押せる高さは yorozu-common v2 の皮と同じ値（このファイルは 1 ファイルで動く本体用で、皮を読み込めないため値を持つ。正本は tools/common/v2/skin.css）。ダークモードは端末の設定に合わせる */
@@ -115,12 +115,10 @@ body.mv-toc-hidden .mv-toc { display: none; }
   font-size: 16px; line-height: 1.65; tab-size: 4;
 }
 #mv-editor:focus-visible { outline-offset: -2px; }
-.mv-preview-pane { min-width: 0; min-height: 0; overflow: auto; background: var(--md-bg, #fffdf8); }
-.mv-preview-pane { background: #fffdf8; }
-@media (prefers-color-scheme: dark) { .mv-preview-pane { background: #221d18; } }
+.mv-preview-pane { min-width: 0; min-height: 0; overflow: auto; background: var(--card); }   /* 文書の地（doc.css の --md-bg）と同じ皮の --card */
 #mv-preview { padding: 1.2rem 1.4rem 3rem; min-height: 100%; }
 #mv-preview .mermaid-block.is-stale svg { opacity: 0.55; }
-#mv-preview .mermaid-pending { color: #6e604f; font-size: 0.85em; }
+#mv-preview .mermaid-pending { color: var(--md-muted); font-size: 0.85em; }
 
 /* 下の状態表示 */
 .mv-status {
@@ -206,13 +204,14 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.35); }
   <style id="mv-doc-css">
 /* 文書（プレビューと、書き出した HTML）の見た目。書き出すときはこの CSS だけを HTML に入れる */
 .markdown-body {
-  --md-text: #2f2a24;
-  --md-muted: #6e604f;
-  --md-bg: #fffdf8;
-  --md-code-bg: #f3eee4;
-  --md-border: #d8ccb4;
-  --md-accent: #0e5a6b;   /* 皮の --accent と同じ値（書き出す HTML は皮を読めないので値で持つ。tests/skin-copy.test.js が突き合わせる） */
-  --md-quote: #7a6b5a;
+  /* 色は皮と同じ値（書き出す HTML は皮を読めないので値で持つ。tests/skin-copy.test.js が突き合わせる）: text=--text、muted=--muted、bg=--card、code-bg=--bg-2、border=--border */
+  --md-text: #1d2125;
+  --md-muted: #4c565f;
+  --md-bg: #fbfcfd;
+  --md-code-bg: #e2e6ea;
+  --md-border: #c5ccd3;
+  --md-accent: #0e5a6b;
+  --md-quote: #4c565f;
   color: var(--md-text);
   background: var(--md-bg);
   font-family: "Noto Sans JP", "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -223,17 +222,17 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.35); }
 }
 @media (prefers-color-scheme: dark) {
   .markdown-body {
-    --md-text: #ece4d6;
-    --md-muted: #b9ab96;
-    --md-bg: #221d18;
-    --md-code-bg: #2f2821;
-    --md-border: #4a3f33;
+    --md-text: #e8ecef;
+    --md-muted: #a8b3bc;
+    --md-bg: #1a1f24;
+    --md-code-bg: #1c2227;
+    --md-border: #2f373e;
     --md-accent: #6fc3d4;
-    --md-quote: #b9ab96;
+    --md-quote: #a8b3bc;
   }
 }
-html:has(> body > main.markdown-body) { background: #fffdf8; }
-@media (prefers-color-scheme: dark) { html:has(> body > main.markdown-body) { background: #221d18; } }
+html:has(> body > main.markdown-body) { background: #fbfcfd; }
+@media (prefers-color-scheme: dark) { html:has(> body > main.markdown-body) { background: #1a1f24; } }
 body > main.markdown-body { max-width: 860px; margin: 0 auto; padding: 2rem 1.2rem 3rem; }
 .markdown-body > :first-child { margin-top: 0; }
 .markdown-body h1, .markdown-body h2, .markdown-body h3,

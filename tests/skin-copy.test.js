@@ -19,8 +19,7 @@ test('src/app.css の色・角・押せる高さは皮と同じ値', () => {
   for (const mode of ['light', 'dark']) for (const [k, v] of Object.entries(app[mode])) if (k in skin[mode] && !k.startsWith('--font')) { assert.equal(v, skin[mode][k], mode + ' ' + k); n++; }
   assert.ok(n >= 10, n + ' 個');
 });
-test('書き出す文書のリンクの色（--md-accent）は皮の --accent と同じ値', () => {
-  const doc = tokens(read('src/doc.css'));
-  assert.equal(doc.light['--md-accent'], skin.light['--accent']);
-  assert.equal(doc.dark['--md-accent'], skin.dark['--accent']);
+test('書き出す文書の色（--md-*）は皮の値と同じ（text・muted・card・bg-2・border・accent）', () => {
+  const doc = tokens(read('src/doc.css')), map = { '--md-text': '--text', '--md-muted': '--muted', '--md-quote': '--muted', '--md-bg': '--card', '--md-code-bg': '--bg-2', '--md-border': '--border', '--md-accent': '--accent' };
+  for (const mode of ['light', 'dark']) for (const [k, v] of Object.entries(map)) assert.equal(doc[mode][k], skin[mode][v], mode + ' ' + k);
 });
