@@ -1,12 +1,13 @@
 /* 文書（プレビューと、書き出した HTML）の見た目。書き出すときはこの CSS だけを HTML に入れる */
 .markdown-body {
-  --md-text: #2f2a24;
-  --md-muted: #6e604f;
-  --md-bg: #fffdf8;
-  --md-code-bg: #f3eee4;
-  --md-border: #d8ccb4;
-  --md-accent: #8b4513;
-  --md-quote: #7a6b5a;
+  /* 色は皮と同じ値（書き出す HTML は皮を読めないので値で持つ。tests/skin-copy.test.js が突き合わせる）: text=--text、muted=--muted、bg=--card、code-bg=--bg-2、border=--border */
+  --md-text: #1d2125;
+  --md-muted: #4c565f;
+  --md-bg: #fbfcfd;
+  --md-code-bg: #e2e6ea;
+  --md-border: #c5ccd3;
+  --md-accent: #0e5a6b;
+  --md-quote: #4c565f;
   color: var(--md-text);
   background: var(--md-bg);
   font-family: "Noto Sans JP", "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
@@ -17,17 +18,17 @@
 }
 @media (prefers-color-scheme: dark) {
   .markdown-body {
-    --md-text: #ece4d6;
-    --md-muted: #b9ab96;
-    --md-bg: #221d18;
-    --md-code-bg: #2f2821;
-    --md-border: #4a3f33;
-    --md-accent: #e0a066;
-    --md-quote: #b9ab96;
+    --md-text: #e8ecef;
+    --md-muted: #a8b3bc;
+    --md-bg: #1a1f24;
+    --md-code-bg: #1c2227;
+    --md-border: #2f373e;
+    --md-accent: #6fc3d4;
+    --md-quote: #a8b3bc;
   }
 }
-html:has(> body > main.markdown-body) { background: #fffdf8; }
-@media (prefers-color-scheme: dark) { html:has(> body > main.markdown-body) { background: #221d18; } }
+html:has(> body > main.markdown-body) { background: #fbfcfd; }
+@media (prefers-color-scheme: dark) { html:has(> body > main.markdown-body) { background: #1a1f24; } }
 body > main.markdown-body { max-width: 860px; margin: 0 auto; padding: 2rem 1.2rem 3rem; }
 .markdown-body > :first-child { margin-top: 0; }
 .markdown-body h1, .markdown-body h2, .markdown-body h3,
