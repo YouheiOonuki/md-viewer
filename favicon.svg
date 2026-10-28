@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <!-- 紙（右上を折った文書）に「M↓」と小さな流れ図 -->
-  <path d="M12 4h28l14 14v40a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#fbfcfd" stroke="#0e5a6b" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M40 4v14h14" fill="none" stroke="#0e5a6b" stroke-width="4" stroke-linejoin="round"/>
-  <path d="M17 34V20l6 8 6-8v14" fill="none" stroke="#0e5a6b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M38 22v11m-5-5 5 5 5-5" fill="none" stroke="#0e5a6b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 4h28l14 14v40a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#faf6ee" stroke="#8b4513" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M40 4v14h14" fill="none" stroke="#8b4513" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M17 34V20l6 8 6-8v14" fill="none" stroke="#8b4513" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 22v11m-5-5 5 5 5-5" fill="none" stroke="#8b4513" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
   <rect x="16" y="42" width="11" height="9" rx="2" fill="#3f6b2a"/>
   <rect x="37" y="42" width="11" height="9" rx="2" fill="#3f6b2a"/>
   <path d="M27 46.5h8" stroke="#3f6b2a" stroke-width="3" stroke-linecap="round"/>
