@@ -16,35 +16,25 @@
   <meta name="robots" content="noindex">
   <meta name="color-scheme" content="light dark">
   <title>Markdown＋Mermaid ビューア</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%20%3Cpath%20d%3D%22M12%204h28l14%2014v40a2%202%200%200%201-2%202H12a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2z%22%20fill%3D%22%23faf6ee%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M40%204v14h14%22%20fill%3D%22none%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M17%2034V20l6%208%206-8v14%22%20fill%3D%22none%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M38%2022v11m-5-5%205%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%238b4513%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Crect%20x%3D%2216%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Crect%20x%3D%2237%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Cpath%20d%3D%22M27%2046.5h8%22%20stroke%3D%22%233f6b2a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%20%3C%2Fsvg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%20%3Cpath%20d%3D%22M12%204h28l14%2014v40a2%202%200%200%201-2%202H12a2%202%200%200%201-2-2V6a2%202%200%200%201%202-2z%22%20fill%3D%22%23fbfcfd%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M40%204v14h14%22%20fill%3D%22none%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M17%2034V20l6%208%206-8v14%22%20fill%3D%22none%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Cpath%20d%3D%22M38%2022v11m-5-5%205%205%205-5%22%20fill%3D%22none%22%20stroke%3D%22%230e5a6b%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%20%3Crect%20x%3D%2216%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Crect%20x%3D%2237%22%20y%3D%2242%22%20width%3D%2211%22%20height%3D%229%22%20rx%3D%222%22%20fill%3D%22%233f6b2a%22%2F%3E%20%3Cpath%20d%3D%22M27%2046.5h8%22%20stroke%3D%22%233f6b2a%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%20%3C%2Fsvg%3E">
   <link rel="manifest" href="/manifest.webmanifest">
   <style>
-/* Markdown＋Mermaid ビューア — 画面の見た目（yorozu-craft 共通の和紙風の配色。ダークモードは端末の設定に合わせる） */
+/* Markdown＋Mermaid ビューア — 画面の見た目。色・角・押せる高さは yorozu-common v2 の皮と同じ値（このファイルは 1 ファイルで動く本体用で、皮を読み込めないため値を持つ。正本は tools/common/v2/skin.css）。ダークモードは端末の設定に合わせる */
 :root {
   color-scheme: light dark;
-  --bg: #f0ebe0;
-  --bg-2: #e6dfd0;
-  --card: #faf6ee;
-  --text: #3a3025;
-  --muted: #6e604f;
-  --accent: #8b4513;
-  --accent-soft: #f3e6d8;
-  --border: #cfc0a0;
-  --shadow: rgba(58, 48, 37, 0.12);
-  --editor-bg: #fffdf8;
+  --tap: 44px; --sp-1: 0.25rem; --sp-2: 0.5rem; --sp-3: 0.75rem; --sp-4: 1rem;
+  --bg: #eef0f2; --bg-2: #e2e6ea; --card: #fbfcfd; --text: #1d2125; --muted: #4c565f;
+  --accent: #0e5a6b; --accent-soft: #dcecef; --on-accent: #ffffff;
+  --border: #c5ccd3; --input-border: #6b7782;
+  --error: #ce0000; --focus: #ffd43d; --focus-ring: #000;
+  --font-ui: "Noto Sans JP", "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --radius: 6px;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1c1814;
-    --bg-2: #25201a;
-    --card: #2b251e;
-    --text: #ece4d6;
-    --muted: #b9ab96;
-    --accent: #e0a066;
-    --accent-soft: #3a2e22;
-    --border: #4a3f33;
-    --shadow: rgba(0, 0, 0, 0.4);
-    --editor-bg: #1f1a16;
+    --bg: #15191d; --bg-2: #1c2227; --card: #1a1f24; --text: #e8ecef; --muted: #a8b3bc;
+    --accent: #6fc3d4; --accent-soft: #14323a; --on-accent: #0b1a1e;
+    --border: #2f373e; --input-border: #7a8792; --error: #ff8a7a; --focus: #000; --focus-ring: #ffd43d;
   }
 }
 
@@ -53,7 +43,7 @@
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: "Noto Sans JP", "Noto Sans CJK JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  font-family: var(--font-ui);
   background: var(--bg);
   color: var(--text);
   display: flex;
@@ -64,9 +54,9 @@ body {
 }
 a { color: var(--accent); }
 button { font: inherit; }
-.mv-visually-hidden {
-  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
-  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+.visually-hidden {
+  position: absolute !important; width: 1px !important; height: 1px !important; margin: 0 !important; padding: 0 !important;
+  overflow: hidden !important; clip-path: inset(50%) !important; white-space: nowrap !important; border: 0 !important;
 }
 
 /* ヘッダーとツールバー */
@@ -77,22 +67,22 @@ button { font: inherit; }
 .mv-brand { display: flex; align-items: center; gap: 0.5rem; min-width: 0; flex: 1 1 auto; }
 .mv-logo {
   display: inline-flex; align-items: center; justify-content: center; flex: none;
-  width: 1.9rem; height: 1.9rem; border-radius: 6px; background: var(--accent); color: var(--card);
+  width: 1.9rem; height: 1.9rem; border-radius: var(--radius); background: var(--accent); color: var(--on-accent);
   font-weight: 700; font-size: 0.85rem;
 }
 .mv-title { font-weight: 700; color: var(--accent); white-space: nowrap; }
 .mv-file { color: var(--muted); font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
 .mv-toolbar { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 .mv-toolbar button, .mv-dialog-buttons button, .mv-toast button {
-  padding: 0.3rem 0.7rem; border: 1px solid var(--border); border-radius: 6px;
-  background: var(--card); color: var(--text); font-size: 0.85rem; cursor: pointer; line-height: 1.5;
+  min-height: var(--tap); padding: 0 var(--sp-3); border: 1px solid var(--input-border); border-radius: var(--radius);
+  background: var(--card); color: var(--text); font-size: 0.9rem; font-weight: 700; cursor: pointer; line-height: 1.5;
 }
 .mv-toolbar button:hover, .mv-dialog-buttons button:hover { border-color: var(--accent); color: var(--accent); }
 .mv-toolbar button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
-button:focus-visible, textarea:focus-visible, a:focus-visible, .mv-license-text:focus-visible {
-  outline: 2px solid var(--accent); outline-offset: 2px;
+button:focus-visible, textarea:focus-visible, a:focus-visible, input:focus-visible, .mv-license-text:focus-visible {
+  outline: 4px solid var(--focus-ring); outline-offset: 2px; box-shadow: 0 0 0 2px var(--focus);
 }
-.mv-primary { background: var(--accent) !important; color: var(--card) !important; border-color: var(--accent) !important; font-weight: 700; }
+.mv-primary { background: var(--accent) !important; color: var(--on-accent) !important; border-color: var(--accent) !important; }
 
 /* 画面の切り替え（狭い画面だけ） */
 .mv-tabs { display: none; }
@@ -108,7 +98,7 @@ body.mv-toc-hidden .mv-toc { display: none; }
 .mv-pane-title { margin: 0 0 0.4rem; font-weight: 700; color: var(--muted); font-size: 0.8rem; }
 .mv-toc-list, .mv-toc-list ol { list-style: none; margin: 0; padding: 0; }
 .mv-toc-list a {
-  display: block; padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--text); text-decoration: none;
+  display: flex; align-items: center; min-height: var(--tap); padding: 0 0.4rem; border-radius: var(--radius); color: var(--text); text-decoration: none;
   line-height: 1.45; overflow-wrap: anywhere;
 }
 .mv-toc-list a:hover, .mv-toc-list a:focus-visible { background: var(--accent-soft); color: var(--accent); }
@@ -120,9 +110,9 @@ body.mv-toc-hidden .mv-toc { display: none; }
 .mv-editor-pane { min-width: 0; min-height: 0; display: flex; border-right: 1px solid var(--border); }
 #mv-editor {
   flex: 1; width: 100%; min-height: 0; resize: none; border: 0; margin: 0;
-  padding: 1rem; background: var(--editor-bg); color: var(--text);
+  padding: 1rem; background: var(--card); color: var(--text);
   font-family: ui-monospace, SFMono-Regular, Consolas, "BIZ UDGothic", "MS Gothic", monospace;
-  font-size: 15px; line-height: 1.65; tab-size: 4;
+  font-size: 16px; line-height: 1.65; tab-size: 4;
 }
 #mv-editor:focus-visible { outline-offset: -2px; }
 .mv-preview-pane { min-width: 0; min-height: 0; overflow: auto; background: var(--md-bg, #fffdf8); }
@@ -138,29 +128,27 @@ body.mv-toc-hidden .mv-toc { display: none; }
   padding: 0.2rem 0.8rem; font-size: 0.75rem; color: var(--muted);
   background: var(--bg-2); border-top: 1px solid var(--border);
 }
-.mv-status .is-warn { color: #b3261e; }
-@media (prefers-color-scheme: dark) { .mv-status .is-warn { color: #f2a097; } }
+.mv-status .is-warn { color: var(--error); }
 
 /* ドラッグ＆ドロップ */
 .mv-drop {
   position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center;
-  background: rgba(139, 69, 19, 0.18); border: 4px dashed var(--accent);
+  background: var(--accent-soft); border: 4px dashed var(--accent);
 }
-.mv-drop p { background: var(--card); padding: 0.8rem 1.4rem; border-radius: 8px; font-weight: 700; color: var(--accent); }
+.mv-drop p { background: var(--card); padding: 0.8rem 1.4rem; border-radius: var(--radius); font-weight: 700; color: var(--accent); }
 
 /* お知らせ */
 .mv-toast {
   position: fixed; left: 50%; bottom: 2.2rem; transform: translateX(-50%); z-index: 30;
-  max-width: calc(100vw - 2rem); padding: 0.5rem 0.9rem; border-radius: 8px;
-  background: var(--text); color: var(--bg); box-shadow: 0 4px 16px var(--shadow); font-size: 0.88rem;
+  max-width: calc(100vw - 2rem); padding: 0.5rem 0.9rem; border-radius: var(--radius);
+  background: var(--text); color: var(--bg); font-size: 0.9rem;
 }
 .mv-toast button { margin-left: 0.6rem; background: var(--bg); color: var(--text); }
 
 /* ダイアログ */
 dialog {
-  border: 1px solid var(--border); border-radius: 10px; padding: 0; background: var(--card); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius); padding: 0; background: var(--card); color: var(--text);
   width: min(40rem, calc(100vw - 1.5rem)); max-height: calc(100dvh - 2rem);
-  box-shadow: 0 8px 32px var(--shadow);
 }
 dialog::backdrop { background: rgba(0, 0, 0, 0.35); }
 .mv-dialog { padding: 1rem 1.2rem; }
@@ -169,29 +157,30 @@ dialog::backdrop { background: rgba(0, 0, 0, 0.35); }
 .mv-dialog p { margin: 0 0 0.6rem; font-size: 0.9rem; line-height: 1.6; overflow-wrap: anywhere; }
 .mv-hint { color: var(--muted); font-size: 0.82rem !important; }
 .mv-dialog textarea {
-  width: 100%; padding: 0.5rem; border: 1px solid var(--border); border-radius: 6px;
-  background: var(--editor-bg); color: var(--text); font-family: ui-monospace, Consolas, monospace; font-size: 0.85rem;
+  width: 100%; padding: 0.5rem; border: 2px solid var(--input-border); border-radius: var(--radius);
+  background: var(--card); color: var(--text); font-family: ui-monospace, Consolas, monospace; font-size: 1rem;
 }
 .mv-tsv-out, .mv-license-text {
-  margin: 0 0 0.6rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg);
-  font-family: ui-monospace, Consolas, monospace; font-size: 0.78rem; line-height: 1.45;
+  margin: 0 0 0.6rem; padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg);
+  font-family: ui-monospace, Consolas, monospace; font-size: 1rem; line-height: 1.45;
   max-height: 11rem; overflow: auto; white-space: pre;
 }
 .mv-license-text { max-height: 18rem; white-space: pre-wrap; overflow-wrap: anywhere; }
-.mv-check { display: flex; gap: 0.4rem; align-items: flex-start; font-size: 0.85rem; margin-bottom: 0.4rem; }
+.mv-check { display: flex; gap: 0.4rem; align-items: center; min-height: var(--tap); font-size: 0.9rem; margin-bottom: 0.4rem; }
+.mv-check input { width: 1.4rem; height: 1.4rem; flex: none; }
 .mv-dialog-buttons { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.6rem; }
 .mv-lib-list { margin: 0 0 0.6rem; padding-left: 1.3rem; font-size: 0.88rem; line-height: 1.6; }
-.mv-noscript { position: fixed; inset: auto 0 0 0; margin: 0; padding: 1rem; background: #fff4d6; color: #3a3025; }
+.mv-noscript { position: fixed; inset: auto 0 0 0; margin: 0; padding: 1rem; background: var(--bg-2); color: var(--text); }
 
 /* 狭い画面: 目次・編集・プレビューをタブで切り替える */
 @media (max-width: 760px) {
   .mv-header { padding: 0.4rem 0.6rem; }
   .mv-title { font-size: 0.95rem; }
   .mv-wide-only { display: none; }
-  .mv-toolbar button { padding: 0.25rem 0.55rem; font-size: 0.8rem; }
+  .mv-toolbar button { padding: 0 var(--sp-2); font-size: 0.85rem; }
   .mv-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--bg-2); }
   .mv-tabs button {
-    flex: 1; padding: 0.45rem 0; border: 0; border-bottom: 3px solid transparent; background: none;
+    flex: 1; min-height: var(--tap); padding: 0; border: 0; border-bottom: 3px solid transparent; background: none;
     color: var(--muted); font-size: 0.9rem; cursor: pointer;
   }
   .mv-tabs button[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
@@ -344,7 +333,7 @@ body > main.markdown-body { max-width: 860px; margin: 0 auto; padding: 2rem 1.2r
       <p class="mv-toc-empty" id="mv-toc-empty">見出し（# で始まる行）を書くと、ここに目次が出ます。</p>
     </aside>
     <section class="mv-editor-pane" aria-label="編集">
-      <label for="mv-editor" class="mv-visually-hidden">Markdown の入力</label>
+      <label for="mv-editor" class="visually-hidden">Markdown の入力</label>
       <textarea id="mv-editor" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="ここに Markdown を書きます。.md ファイルをここにドラッグしても開けます。"></textarea>
     </section>
     <section class="mv-preview-pane" id="mv-preview-pane" aria-label="プレビュー">
@@ -364,7 +353,7 @@ body > main.markdown-body { max-width: 860px; margin: 0 auto; padding: 2rem 1.2r
     <form method="dialog" class="mv-dialog">
       <h2 id="mv-table-title">Excel の表を貼り付け</h2>
       <p class="mv-hint">Excel やスプレッドシートでセルの範囲をコピーし、下の枠に貼り付けてください（Ctrl+V）。1 行目が見出しの行になります。</p>
-      <label for="mv-tsv" class="mv-visually-hidden">コピーした表</label>
+      <label for="mv-tsv" class="visually-hidden">コピーした表</label>
       <textarea id="mv-tsv" rows="6" spellcheck="false" placeholder="ここに貼り付け"></textarea>
       <p class="mv-hint">変換結果（カーソルの位置に入ります）</p>
       <pre class="mv-tsv-out" id="mv-tsv-out" aria-live="polite"></pre>
