@@ -48,7 +48,7 @@ node --test tests/*.test.js
 
 - `build.mjs` は依存パッケージなし。`src/app.html` に `src/app.css`・`src/doc.css`・ライブラリのブラウザ用ビルド（`dompurify/dist/purify.min.js`・`marked/lib/marked.umd.js`・`mermaid/dist/mermaid.min.js`）・`src/core.js`・`src/app.js` をそのまま埋め込む
 - 埋め込む JS に `</script` があれば `<\/script` にし、`<script` があればビルドを止める（今のライブラリには無い）。`src/*.js` にも「`<` のすぐ後ろに script」と書かない
-- 同じ入力なら同じ `md-viewer.html` になる（日付などを入れない）。CI（`.github/workflows/test.yml`）で `npm ci && node build.mjs` のあと差分が無いことを確かめるので、**`src/` やライブラリを直したら、ビルドした `md-viewer.html` も一緒にコミットする**（GitHub Pages はリポジトリのファイルをそのまま配る）
+- 同じ入力なら同じ `md-viewer.html` になる（日付などを入れない）。CI（`.github/workflows/test.yml`）で `npm ci && node build.mjs` のあと差分が無いことを確かめるので、**`src/` やライブラリを直したら、ビルドした `md-viewer.html` も一緒にコミットする**（yorozu-craft.com はこのリポジトリの main の `md-viewer.html` をそのまま配る。本番に出るのは yorozu-plans の `tools/deploy` で上げたとき）
 - サイズ（2026-09-23 のビルド）：`md-viewer.html` 約 5.6MB（企画の目標 10MB 以下）。うち mermaid.min.js 5,575,485・marked.umd.js 46,891・purify.min.js 28,885 バイト。ビルドのたびに `node build.mjs` がバイト数を表示する。ライブラリを更新したら紹介ページの「約 5.6MB」も直す
 
 ## ライブラリとライセンス
