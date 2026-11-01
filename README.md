@@ -56,16 +56,16 @@ node --test tests/*.test.js
 | ライブラリ | バージョン | ライセンス | 埋め込むファイル |
 |-----------|-----------|-----------|----------------|
 | marked | 18.0.14 | MIT | `lib/marked.umd.js` |
-| mermaid | 12.0.0 | MIT | `dist/mermaid.min.js` |
-| DOMPurify | 3.4.16 | MPL-2.0 OR Apache-2.0（Apache-2.0 を選択） | `dist/purify.min.js` |
+| mermaid | 12.2.0 | MIT | `dist/mermaid.min.js` |
+| DOMPurify | 3.4.17 | MPL-2.0 OR Apache-2.0（Apache-2.0 を選択） | `dist/purify.min.js` |
 
 - `package.json` の `devDependencies` にバージョンを固定（`^` なし）。`package-lock.json` もコミットする
-- ライセンス全文は `build.mjs` が集めて `THIRD_PARTY_LICENSES.txt` と `md-viewer.html` の末尾（`<script type="text/plain" id="licenses">`、画面の「ライセンス」ボタンで表示）に入れる。集め方：3 つのライブラリから `dependencies` をたどった全パッケージ（`@types/*` を除く）＋ mermaid の配布ファイルに組み込まれているが npm では入らないパッケージ（`licenses/extra.json` と `licenses/*.txt`。js-yaml・fastdom・langium・chevrotain-allstar・vscode-jsonrpc ほか）。2026-09-23 時点で 94 パッケージ
-- 内訳（2026-09-23）：MIT 45・ISC 33・Apache-2.0 6・BSD-3-Clause 6・EPL-2.0 1（elkjs）・Unlicense 1（robust-predicates）・MPL-2.0 OR Apache-2.0 1（DOMPurify）・khroma 1（下記）
+- ライセンス全文は `build.mjs` が集めて `THIRD_PARTY_LICENSES.txt` と `md-viewer.html` の末尾（`<script type="text/plain" id="licenses">`、画面の「ライセンス」ボタンで表示）に入れる。集め方：3 つのライブラリから `dependencies` をたどった全パッケージ（`@types/*` を除く）＋ mermaid の配布ファイルに組み込まれているが npm では入らないパッケージ（`licenses/extra.json` と `licenses/*.txt`。js-yaml・fastdom・langium・chevrotain-allstar・vscode-jsonrpc ほか）。2026-11-01 時点で 94 パッケージ
+- 内訳（2026-11-01）：MIT 45・ISC 33・Apache-2.0 6・BSD-3-Clause 6・EPL-2.0 1（elkjs）・Unlicense 1（robust-predicates）・MPL-2.0 OR Apache-2.0 1（DOMPurify）・khroma 1（下記）
 - **elkjs**（0.9.3、package.json の license は `EPL-2.0`）：`mermaid.min.js` の中に入っている（"Eclipse Layout Kernel" の文字列と、`mermaid.js` の中の `elkjs@0.9.3` のパスで確認）。EPL-2.0 の本文と、ソースコードの入手先（https://github.com/kieler/elkjs 、npm の `elkjs@0.9.3`）を `THIRD_PARTY_LICENSES.txt` の冒頭に書いている
 - **khroma**（2.1.0）：package.json に `license` の欄が無いが、同梱の `license` ファイルは MIT License（Copyright (c) 2019-present Fabio Spampinato, Andrew Maney）
-- mermaid 12.0.0 の中には、mermaid のビルド時の DOMPurify 3.4.12 と marked 16 系も入っている（ライセンスは同じ）
-- `npm audit`（2026-09-23）：mermaid → chevrotain 11.1.2 → lodash-es 4.17.23 に high が 5 件（`_.template` と `_.unset`/`_.omit`）。`npm audit fix --force` は mermaid 11 に戻すので行っていない。mermaid の配布ファイルにはビルド時の lodash-es がそのまま入っているため、npm 側を直しても `md-viewer.html` は変わらない。次の mermaid の更新で解消を確かめる
+- mermaid 12.2.0 の中には、mermaid のビルド時の DOMPurify 3.4.12 と marked 16.3.0 も入っている（ライセンスは同じ）。この DOMPurify には 3.4.17 で直った 3 件が残るが、3 件とも `IN_PLACE`・`SAFE_FOR_TEMPLATES`・`PARSER_MEDIA_TYPE` を指定したときだけ起きる。mermaid 自身の `sanitize` の呼び出しはこれらを指定せず、md-viewer も mermaid に `dompurifyConfig` を渡していない（2026-11-01 に `dist/mermaid.js` で確認）
+- `npm audit`（2026-11-01）：0 件。mermaid 12.2.0 の配布ファイルに入っている lodash-es は 4.18.1、chevrotain は 13.2.0 で、2026-09-23 に残っていた high 5 件（chevrotain 11.1.2 → lodash-es 4.17.23）は `md-viewer.html` からも消えた。mermaid の配布ファイルにはビルド時の依存がそのまま入るので、npm 側だけ直しても `md-viewer.html` は変わらない。確かめるのは `dist/mermaid.js` の中の `node_modules/.pnpm/` のパス
 
 ## 保守
 
