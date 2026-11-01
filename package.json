@@ -9,8 +9,8 @@
     "test": "node --test tests/*.test.js"
   },
   "devDependencies": {
-    "dompurify": "3.4.16",
+    "dompurify": "3.4.17",
     "marked": "18.0.14",
-    "mermaid": "12.0.0"
+    "mermaid": "12.2.0"
   }
 }

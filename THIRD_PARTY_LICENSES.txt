@@ -1,9 +1,9 @@
 THIRD-PARTY SOFTWARE NOTICES / 同梱しているソフトウェアのライセンス
 
 Markdown＋Mermaid ビューア（md-viewer.html）には、次のライブラリをそのまま埋め込んでいます。
-  - DOMPurify 3.4.16（npm: dompurify/dist/purify.min.js） MPL-2.0 または Apache-2.0（本ツールは Apache-2.0 を選択）
+  - DOMPurify 3.4.17（npm: dompurify/dist/purify.min.js） MPL-2.0 または Apache-2.0（本ツールは Apache-2.0 を選択）
   - marked 18.0.14（npm: marked/lib/marked.umd.js） MIT
-  - mermaid 12.0.0（npm: mermaid/dist/mermaid.min.js） MIT（中に含まれるパッケージのライセンスは下記）
+  - mermaid 12.2.0（npm: mermaid/dist/mermaid.min.js） MIT（中に含まれるパッケージのライセンスは下記）
 
 mermaid の配布ファイル（mermaid.min.js）には、mermaid が使う多くのパッケージが組み込まれています。
 下の一覧は、npm で入る依存パッケージと、配布ファイルに組み込まれているパッケージをすべて載せています
@@ -73,12 +73,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ========================================================================
-@chevrotain/cst-dts-gen@11.1.2  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
-@chevrotain/gast@11.1.2  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
-@chevrotain/regexp-to-ast@11.1.2  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
-@chevrotain/types@11.1.2  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
-@chevrotain/utils@11.1.2  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
-chevrotain@11.1.2  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
+@chevrotain/cst-dts-gen@13.2.0  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
+@chevrotain/gast@13.2.0  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
+@chevrotain/regexp-to-ast@13.2.0  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
+@chevrotain/types@13.2.0  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
+@chevrotain/utils@13.2.0  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
+chevrotain@13.2.0  License: Apache-2.0  https://github.com/Chevrotain/chevrotain
 ========================================================================
 
 Apache License
@@ -336,7 +336,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ========================================================================
-@mermaid-js/parser@2.0.0  License: MIT  https://github.com/mermaid-js/mermaid
+@mermaid-js/parser@2.0.1  License: MIT  https://github.com/mermaid-js/mermaid
 ========================================================================
 
 The MIT License (MIT)
@@ -410,8 +410,8 @@ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ========================================================================
+commander@15.0.0  License: MIT  https://github.com/tj/commander.js
 commander@7.2.0  License: MIT  https://github.com/tj/commander.js
-commander@8.3.0  License: MIT  https://github.com/tj/commander.js
 ========================================================================
 
 (The MIT License)
@@ -1059,7 +1059,7 @@ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
 THIS SOFTWARE.
 
 ========================================================================
-dompurify@3.4.16  License: (MPL-2.0 OR Apache-2.0)  https://github.com/cure53/DOMPurify
+dompurify@3.4.17  License: (MPL-2.0 OR Apache-2.0)  https://github.com/cure53/DOMPurify
 ========================================================================
 
 Apache License
@@ -2123,7 +2123,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ========================================================================
-katex@0.16.47  License: MIT  https://github.com/KaTeX/KaTeX
+katex@0.18.10  License: MIT  https://github.com/KaTeX/KaTeX
 ========================================================================
 
 The MIT License (MIT)
@@ -2223,7 +2223,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ========================================================================
-lodash-es@4.17.23  License: MIT  https://github.com/lodash/lodash
+lodash-es@4.18.1  License: MIT  https://github.com/lodash/lodash
 ========================================================================
 
 Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
@@ -2325,7 +2325,7 @@ Redistribution and use in source and binary forms, with or without modification,
 This software is provided by the copyright holders and contributors “as is” and any express or implied warranties, including, but not limited to, the implied warranties of merchantability and fitness for a particular purpose are disclaimed. In no event shall the copyright owner or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.
 
 ========================================================================
-mermaid@12.0.0  License: MIT  https://github.com/mermaid-js/mermaid
+mermaid@12.2.0  License: MIT  https://github.com/mermaid-js/mermaid
 ========================================================================
 
 The MIT License (MIT)
