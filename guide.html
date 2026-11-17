@@ -56,6 +56,22 @@
           "@type": "Answer",
           "text": "書き方に誤りがあると、図の代わりに「図を描けませんでした」とエラーの内容が出ます。ZenUML には対応していません。"
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Markdown を PDF に変換できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "「印刷」を押し、プリンターの選択で「PDF に保存」を選びます。プレビューの部分だけが、Mermaid の図と表も含めて PDF になります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "表のセルの中で改行できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "改行したい所に <br> と書きます。プレビューでも印刷でも、セルの中で改行されます。"
+        }
       }
     ]
   }
@@ -187,6 +203,10 @@ flowchart TD
         <dd>通信しない作りのため、URL や別のファイルを指定した画像は表示しません（data: で始まる形の画像だけ表示します）。図は Mermaid で書くのがおすすめです。</dd>
         <dt>Mermaid の図が表示されません。</dt>
         <dd>書き方に誤りがあると、図の代わりに「図を描けませんでした」とエラーの内容が出ます。ZenUML には対応していません。</dd>
+        <dt>Markdown を PDF に変換できますか？</dt>
+        <dd>「印刷」を押し、プリンターの選択で「PDF に保存」を選びます。プレビューの部分だけが、Mermaid の図と表も含めて PDF になります。</dd>
+        <dt>表のセルの中で改行できますか？</dt>
+        <dd>改行したい所に <code>&lt;br&gt;</code> と書きます。プレビューでも印刷でも、セルの中で改行されます。</dd>
       </dl>
     </article>
 
@@ -235,6 +255,7 @@ flowchart TD
     <article class="card content" id="changelog">
       <h2>更新履歴</h2>
       <ul>
+        <li><time datetime="2026-11-17">2026年11月17日</time> よくある質問に「PDF への変換」「表のセルの中の改行」の 2 問を足しました</li>
         <li><time datetime="2026-10-10">2026年10月10日</time> GitHub へのリンクを外しました</li>
         <li><time datetime="2026-09-24">2026年9月24日</time> 説明を短くまとめ、PAC ファイル テスターへの案内を足しました</li>
         <li><time datetime="2026-09-23">2026年9月23日</time> 公開</li>
