@@ -51,7 +51,7 @@ button { font: inherit; }
 }
 .mv-title { font-weight: 700; color: var(--accent); white-space: nowrap; }
 .mv-file { color: var(--muted); font-size: 0.85rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
-.mv-toolbar { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.mv-toolbar { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
 .mv-toolbar button, .mv-dialog-buttons button, .mv-toast button {
   min-height: var(--tap); padding: 0 var(--sp-3); border: 1px solid var(--input-border); border-radius: var(--radius);
   background: var(--card); color: var(--text); font-size: 0.9rem; font-weight: 700; cursor: pointer; line-height: 1.5;
@@ -76,6 +76,7 @@ body.mv-toc-hidden .mv-toc { display: none; }
 .mv-toc { overflow: auto; padding: 0.6rem 0.6rem 1rem; border-right: 1px solid var(--border); background: var(--bg); font-size: 0.85rem; }
 .mv-pane-title { margin: 0 0 0.4rem; font-weight: 700; color: var(--muted); font-size: 0.8rem; }
 .mv-toc-list, .mv-toc-list ol { list-style: none; margin: 0; padding: 0; }
+.mv-toc-list li + li, .mv-toc-list li > ol { margin-top: var(--sp-2); }
 .mv-toc-list a {
   display: flex; align-items: center; min-height: var(--tap); padding: 0 0.4rem; border-radius: var(--radius); color: var(--text); text-decoration: none;
   line-height: 1.45; overflow-wrap: anywhere;
