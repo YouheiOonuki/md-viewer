@@ -1,0 +1,15 @@
+{
+  "src": "src/reset-storage.js",
+  "prefixes": [
+    "md-viewer_"
+  ],
+  "legacy": [],
+  "pagePrefixes": {},
+  "pageLegacy": {},
+  "inline": [
+    "md-viewer.html"
+  ],
+  "skipDirs": [
+    "src"
+  ]
+}
