@@ -49,7 +49,7 @@ node --test tests/*.test.js
 - `build.mjs` は依存パッケージなし。`src/app.html` に `src/app.css`・`src/doc.css`・ライブラリのブラウザ用ビルド（`dompurify/dist/purify.min.js`・`marked/lib/marked.umd.js`・`mermaid/dist/mermaid.min.js`）・`src/core.js`・`src/app.js` をそのまま埋め込む
 - 埋め込む JS に `</script` があれば `<\/script` にし、`<script` があればビルドを止める（今のライブラリには無い）。`src/*.js` にも「`<` のすぐ後ろに script」と書かない
 - 同じ入力なら同じ `md-viewer.html` になる（日付などを入れない）。CI（`.github/workflows/test.yml`）で `npm ci && node build.mjs` のあと差分が無いことを確かめるので、**`src/` やライブラリを直したら、ビルドした `md-viewer.html` も一緒にコミットする**（yorozu-craft.com はこのリポジトリの main の `md-viewer.html` をそのまま配る。本番に出るのは yorozu-plans の `tools/deploy` で上げたとき）
-- サイズ（2026-09-23 のビルド）：`md-viewer.html` 約 5.6MB（企画の目標 10MB 以下）。うち mermaid.min.js 5,575,485・marked.umd.js 46,891・purify.min.js 28,885 バイト。ビルドのたびに `node build.mjs` がバイト数を表示する。ライブラリを更新したら紹介ページの「約 5.6MB」も直す
+- サイズ（2026-11-01 のビルド。mermaid 12.2.0）：`md-viewer.html` 約 5.5MB（5,788,999 バイト。1 MB = 1,048,576 バイトで、build.mjs の表示と同じ）（企画の目標 10MB 以下）。内訳はビルドのたびに `node build.mjs` が表示する。ライブラリを更新したら紹介ページの「約 N MB」も直す（配信前の check.ps1 が、実物と 5% を超えて違う「約 N MB」を NG にする）
 
 ## ライブラリとライセンス
 
@@ -73,7 +73,7 @@ node --test tests/*.test.js
 |------|------------|---------|
 | 半年に 1 回（3 月・9 月ごろ） | marked・mermaid・DOMPurify の新しい版（特に DOMPurify と mermaid のセキュリティ修正）、`npm audit` | `package.json` のバージョン → `npm install` → `node build.mjs` → テスト → ブラウザで見本・図の種類・書き出しを確認 → `md-viewer.html`・`THIRD_PARTY_LICENSES.txt`・`package-lock.json` をコミット |
 | 同上 | mermaid の配布ファイルに組み込まれるパッケージの変化（`node_modules/mermaid/dist/mermaid.js` の中の `node_modules/.pnpm/` のパスを見る） | `licenses/extra.json`・`licenses/*.txt` |
-| ライブラリを更新したとき | ファイルサイズ、ライセンスの一覧 | `index.html` の「約 5.6MB」・JSON-LD の `fileSize`、`guide.html` の「ライセンス一覧」、この README |
+| ライブラリを更新したとき | ファイルサイズ、ライセンスの一覧 | `index.html` の「約 N MB」・JSON-LD の `fileSize`、`guide.html` の「ライセンス一覧」、この README |
 
 直したら、`guide.html` の「更新履歴」に日付と内容を 1 行足す。
 
